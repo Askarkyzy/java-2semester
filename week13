@@ -1,0 +1,28 @@
+public class week13 {
+    public static void main(String[] args) {
+
+
+        MyRunnable myRunnable = new MyRunnable();
+        for (int i = 0; i < 1000; i++) {
+            Thread thread = new Thread(myRunnable);
+            thread.start();
+        }
+        System.out.println(MyRunnable.getSum());
+    }
+}
+
+class MyRunnable implements Runnable {
+
+    static Integer sum = 0;
+
+    @Override
+    public void run() {
+        synchronized (this) {
+            sum++;
+        }
+    }
+
+    public static Integer getSum() {
+        return sum;
+    }
+}

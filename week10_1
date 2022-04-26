@@ -1,0 +1,29 @@
+import java.util.LinkedList;
+
+public class week10_1 {
+
+    public static void main(String[] args) {
+
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 0; i <30;i++) {
+            list.add(i);
+        }
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 30;i++) {
+            list.get(i);
+        }
+        System.out.println();
+        long end = System.currentTimeMillis();
+        long timeLoop = end - start;
+        System.out.println("For loop: " + timeLoop);
+
+        for (int i : list) {
+
+        }
+        long endd = System.currentTimeMillis();
+        long resIter = endd - timeLoop;
+        System.out.println("Iterator: " + resIter);
+
+
+    }
+}
